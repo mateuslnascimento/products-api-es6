@@ -4,7 +4,7 @@ const express = require('express');
 const repository = require('../repositories/product');
 
 exports.post = async (req, res, next) => {
-    const { body: {name, description, brand, modelYear, active}} = req;
+    const { body: {name, description, brand, modelYear, active, sizes}} = req;
     try {
         await repository.create({
             name: name,
@@ -12,6 +12,7 @@ exports.post = async (req, res, next) => {
             brand: brand,
             modelYear: modelYear,
             active: active || false,
+            sizes: sizes,
         });
         res
         .status(201)
@@ -19,6 +20,7 @@ exports.post = async (req, res, next) => {
             message: `Produto ${name} criado com sucesso!`
         });
     } catch (error) {
+        console.log(error);
         res
         .status(500)
         .send({

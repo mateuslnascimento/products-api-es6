@@ -26,6 +26,14 @@ const product = new schema({
         required: true,
         default: false,
     },
+    sizes: [{
+        size: String,
+        isAvailable: {
+            type: Boolean,
+            default: false
+        },
+        required: false,
+    }],
     tags: [{
         type: String,
         required: false,

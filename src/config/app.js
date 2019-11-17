@@ -15,16 +15,17 @@ const productRoute = require('../routes/product');
 
 app.use(
     bodyParser
-    .urlencoded({
-    extended: false,
-}),
-bodyParser.json({
-    limit: '5mb'
-})
+        .urlencoded({
+            extended: false,
+        }),
+    bodyParser.json({
+        limit: '5mb'
+    })
 )
 
 
 app.use('/', indexRoute)
 app.use('/products', productRoute);
+
 
 module.exports = app;
