@@ -1,6 +1,5 @@
 'use strict';
 
-const express = require('express');
 const repository = require('../repositories/product');
 
 exports.post = async (req, res, next) => {
@@ -62,17 +61,6 @@ exports.delete = async (req, res) => {
 }
 
 exports.put = async(req, res) => {
-    try {
-        const data = await repository.update(req.params.id, req.body);
-        res.status(200).send({
-            message: 'Produto atualizado com sucesso!'
-        });
-    } catch(error) {
-        throw error;
-    }
-}
-
-exports.patch = async(req, res) => {
     try {
         const data = await repository.update(req.params.id, req.body);
         res.status(200).send({
