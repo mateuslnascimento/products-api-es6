@@ -2,7 +2,7 @@
 
 const repository = require('../repositories/product');
 
-exports.post = async (req, res, next) => {
+exports.post = async (req, res) => {
     const { body: {name, description, brand, modelYear, active, sizes}} = req;
     try {
         await repository.create({
